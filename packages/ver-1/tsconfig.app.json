@@ -20,7 +20,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Paths */
+    "paths": {
+      "@components/*": ["../shared/src/components/*"],
+      "@constants/*": ["../shared/src/constants/*"],
+      "@design-system": ["../shared/src/design-system/index.ts"]
+    }
   },
   "include": ["src"]
 }
