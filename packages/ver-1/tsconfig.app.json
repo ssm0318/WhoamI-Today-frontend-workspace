@@ -26,7 +26,8 @@
     "paths": {
       "@components/*": ["../shared/src/components/*"],
       "@constants/*": ["../shared/src/constants/*"],
-      "@design-system": ["../shared/src/design-system/index.ts"]
+      "@design-system": ["../shared/src/design-system/index.ts"],
+      "@styles/*": ["../shared/src/styles/*"],
     }
   },
   "include": ["src"]

@@ -9,20 +9,20 @@ function Intro() {
         <img src={WhoamiLogo} alt="who_am_i" />
       </Layout.FlexCol>
       <Layout.Absolute w="100%" b="0" flexDirection="column" p={24} mb={56} gap={24}>
-        <Button.Large
-          type="gray_fill"
+        <Button.Primary
           status="normal"
           to="/signup/email"
           // TODO: i18n
           text="Sign Up"
+          fontType="head-line"
           sizing="stretch"
         />
-        <Button.Large
-          type="gray_fill"
+        <Button.Secondary
           status="normal"
           to="/signin"
           // TODO: i18n
           text="Sign In"
+          fontType="head-line"
           sizing="stretch"
         />
       </Layout.Absolute>
