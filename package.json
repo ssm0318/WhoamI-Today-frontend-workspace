@@ -4,9 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "shared": "pnpm --filter shared",
+    "ver-1": "pnpm --filter end-quick-path",
+    "server-shared": "pnpm --filter server-shared"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2"
+  },
+  "lint-staged": {
+    "**/*.{ts,js,tsx,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.html": [
+      "prettier --write"
+    ]
+  }
 }

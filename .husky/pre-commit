@@ -1,0 +1,2 @@
+echo 'lint-staged run!'
+npx lint-staged
