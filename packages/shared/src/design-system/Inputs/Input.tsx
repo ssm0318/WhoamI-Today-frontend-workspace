@@ -1,8 +1,8 @@
-import { InputHTMLAttributes, useState } from 'react';
-import { Layout } from '@design-system';
-import { Typo } from '../Font';
-import { FontType } from '../Font/Font.types';
-import CommonInput, { CommonInputProps } from './Input.styled';
+import { Layout } from "@design-system";
+import { InputHTMLAttributes, useState } from "react";
+import { Typo } from "../Font";
+import { FontType } from "../Font/Font.types";
+import CommonInput, { CommonInputProps } from "./Input.styled";
 
 export type InputProps = {
   label: string;
@@ -12,7 +12,7 @@ export type InputProps = {
   InputHTMLAttributes<HTMLInputElement>;
 
 function Input(props: InputProps) {
-  const { label, labelType = 'title-medium', limit, ...inputProps } = props;
+  const { label, labelType = "title-medium", limit, ...inputProps } = props;
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -23,11 +23,16 @@ function Input(props: InputProps) {
 
   return (
     <>
-      <Typo type={labelType} color={isFocused ? 'BLACK' : 'MEDIUM_GRAY'}>
+      <Typo type={labelType} color={isFocused ? "BLACK" : "MEDIUM_GRAY"}>
         {label}
       </Typo>
-      <CommonInput {...inputProps} onFocus={handleFocus} onBlur={handleBlur} maxLength={limit} />
-      {limit && inputProps.type === 'text' && (
+      <CommonInput
+        {...inputProps}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        maxLength={limit}
+      />
+      {limit && inputProps.type === "text" && (
         <Layout.FlexRow w="100%" justifyContent="flex-end" mt={4}>
           <Typo type="label-small" color="DARK_GRAY">
             {textLength || 0} / {limit}

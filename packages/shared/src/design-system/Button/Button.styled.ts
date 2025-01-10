@@ -1,12 +1,12 @@
-import styled, { css } from 'styled-components';
-import { DEFAULT_MARGIN } from '../../constants/layout';
-import { ColorKeys } from '../colors';
-import { FlexRow } from '../layouts';
+import styled, { css } from "styled-components";
+import { DEFAULT_MARGIN } from "../../constants/layout";
+import { ColorKeys } from "../colors";
+import { FlexRow } from "../layouts";
 
 type StyledButtonProps = {
   outline?: ColorKeys;
   fill?: ColorKeys;
-  sizing?: 'fit-content' | 'stretch';
+  sizing?: "fit-content" | "stretch";
   width?: number;
 };
 const Button = styled.div<StyledButtonProps>`
@@ -21,7 +21,7 @@ const Button = styled.div<StyledButtonProps>`
       border: 1px solid ${theme[outline]};
     `};
   ${({ sizing }) =>
-    sizing === 'fit-content' &&
+    sizing === "fit-content" &&
     css`
       align-self: flex-start;
     `}
@@ -30,10 +30,9 @@ const Button = styled.div<StyledButtonProps>`
   align-items: center;
   justify-content: center;
   word-break: keep-all;
-  ${({ width }) =>
-    css`
-      width: ${width}px;
-    `}
+  ${({ width }) => css`
+    width: ${width}px;
+  `}
 `;
 
 /** @deprecated */
@@ -79,11 +78,14 @@ export const ConfirmButton = styled(Button)`
   border-radius: 5.74px;
 `;
 
-export const Container = styled.div<{ sizing?: 'fit-content' | 'stretch'; disabled: boolean }>`
+export const Container = styled.div<{
+  sizing?: "fit-content" | "stretch";
+  disabled: boolean;
+}>`
   display: flex;
   flex-direction: column;
-  ${({ sizing = 'fit-content' }) =>
-    sizing === 'stretch' &&
+  ${({ sizing = "fit-content" }) =>
+    sizing === "stretch" &&
     css`
       width: 100%;
       align-self: stretch;

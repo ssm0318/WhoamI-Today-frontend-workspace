@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import { Layout } from '@design-system';
-import { LayoutBase } from './Flex';
-import { Translate } from './layout.types';
-import { toTranslateString } from './layout.utils';
+import { Layout } from "@design-system";
+import styled, { css } from "styled-components";
+import { LayoutBase } from "./Flex";
+import { Translate } from "./layout.types";
+import { toTranslateString } from "./layout.utils";
 
 type FixedStyle = {
   b?: number | string;
@@ -15,10 +15,10 @@ type FixedStyle = {
 export const Fixed = styled(LayoutBase)<FixedStyle>`
   position: fixed;
   ${({ b, t, l, r, tl }) => css`
-    ${Layout.getStyle('bottom', b)}
-    ${Layout.getStyle('top', t)}
-    ${Layout.getStyle('left', l)}
-    ${Layout.getStyle('right', r)}
+    ${Layout.getStyle("bottom", b)}
+    ${Layout.getStyle("top", t)}
+    ${Layout.getStyle("left", l)}
+    ${Layout.getStyle("right", r)}
     ${toTranslateString(tl)}
   `}
 `;
