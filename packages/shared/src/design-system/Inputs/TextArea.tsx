@@ -1,9 +1,9 @@
-import { Layout } from "@design-system";
-import { useState } from "react";
-import { TextareaAutosizeProps } from "react-textarea-autosize";
-import { Typo } from "../Font";
-import { FontType } from "../Font/Font.types";
-import { CommonTextArea, CommonTextAreaProps } from "./TextArea.styled";
+import { useState } from 'react';
+import { TextareaAutosizeProps } from 'react-textarea-autosize';
+import { Typo } from '../Font';
+import { FontType } from '../Font/Font.types';
+import * as Layout from '../layouts';
+import { CommonTextArea, CommonTextAreaProps } from './TextArea.styled';
 
 export type TextAreaProps = {
   label?: string | null;
@@ -13,7 +13,7 @@ export type TextAreaProps = {
   TextareaAutosizeProps;
 
 function TextArea(props: TextAreaProps) {
-  const { label, labelType = "title-medium", limit, ...inputProps } = props;
+  const { label, labelType = 'title-medium', limit, ...inputProps } = props;
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const handleFocus = () => setIsFocused(true);
@@ -25,16 +25,11 @@ function TextArea(props: TextAreaProps) {
   return (
     <>
       {label && (
-        <Typo type={labelType} color={isFocused ? "BLACK" : "MEDIUM_GRAY"}>
+        <Typo type={labelType} color={isFocused ? 'BLACK' : 'MEDIUM_GRAY'}>
           {label}
         </Typo>
       )}
-      <CommonTextArea
-        {...inputProps}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        maxLength={limit}
-      />
+      <CommonTextArea {...inputProps} onFocus={handleFocus} onBlur={handleBlur} maxLength={limit} />
       {limit && (
         <Layout.FlexRow w="100%" justifyContent="flex-end" mt={4}>
           <Typo type="label-small" color="DARK_GRAY">

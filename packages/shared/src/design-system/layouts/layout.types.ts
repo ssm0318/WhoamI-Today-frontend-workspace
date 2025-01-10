@@ -1,6 +1,6 @@
-import { ColorKeys } from "../colors";
+import { ColorKeys } from '../colors';
 
-export type DefaultOrNumber = "default" | number;
+export type DefaultOrNumber = 'default' | number;
 export type Margin = {
   m?: DefaultOrNumber;
   mh?: DefaultOrNumber;
@@ -37,14 +37,14 @@ export type BgColor = {
   bgColor?: ColorKeys;
 };
 
-type FlexType = "center" | "flex-start" | "flex-end";
+type FlexType = 'center' | 'flex-start' | 'flex-end';
 
 export type Flex = {
   flex?: number;
   alignSelf?: FlexType;
   alignItems?: FlexType;
-  justifyContent?: FlexType | "space-between" | "space-evenly";
-  cursor?: "pointer" | "grab" | undefined;
+  justifyContent?: FlexType | 'space-between' | 'space-evenly';
+  cursor?: 'pointer' | 'grab' | undefined;
   gap?: number;
 };
 

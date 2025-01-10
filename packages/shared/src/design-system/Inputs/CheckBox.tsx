@@ -1,10 +1,8 @@
-import { InputHTMLAttributes } from "react";
-import { Margin } from "../layouts";
-import { StyledRectCheckBox } from "./CheckBox.styled";
+import { InputHTMLAttributes } from 'react';
+import { Margin } from '../layouts';
+import { StyledRectCheckBox } from './CheckBox.styled';
 
-export function CheckBox(
-  props: InputHTMLAttributes<HTMLInputElement> & Margin,
-) {
+export function CheckBox(props: InputHTMLAttributes<HTMLInputElement> & Margin) {
   const { name, className } = props;
   return (
     <StyledRectCheckBox className={className}>

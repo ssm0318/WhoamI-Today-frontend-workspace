@@ -36,8 +36,7 @@
   },
   "lint-staged": {
     "**/*.{ts,js,tsx,jsx}": [
-      "pnpm lint:diff",
-      "prettier --write"
+      "pnpm lint:diff"
     ],
     "src/**/*.html": [
       "prettier --write"

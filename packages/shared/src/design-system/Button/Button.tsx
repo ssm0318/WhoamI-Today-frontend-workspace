@@ -1,17 +1,17 @@
-import React, { ReactElement, useMemo } from "react";
-import { Link } from "react-router-dom";
-import * as Font from "../Font";
-import { Typo } from "../Font";
-import { FontType, isDisplayType } from "../Font/Font.types";
-import * as Layout from "../layouts";
-import * as S from "./Button.styled";
+import React, { ReactElement, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import * as Font from '../Font';
+import { Typo } from '../Font';
+import { FontType, isDisplayType } from '../Font/Font.types';
+import * as Layout from '../layouts';
+import * as S from './Button.styled';
 import {
   ButtonComponentProps,
   ButtonSetting,
   DeprecatedButtonComponentProps,
   DeprecatedButtonSetting,
-} from "./Button.types";
-import { useButton } from "./useButton";
+} from './Button.types';
+import { useButton } from './useButton';
 
 /** @deprecated use <Button /> */
 function DeprecatedButton(
@@ -21,19 +21,13 @@ function DeprecatedButton(
 ) {
   const { size, to, width, ...buttonProps } = props;
   const { sizing } = buttonProps;
-  const { text, color, outline, fill, status, ...handlers } =
-    useButton(buttonProps);
+  const { text, color, outline, fill, status, ...handlers } = useButton(buttonProps);
   const { ButtonComponent, fontType } = deprecatedButtons[size];
 
   const buttonChildren = useMemo(() => {
     if (!text) return null;
     return (
-      <ButtonComponent
-        sizing={sizing}
-        outline={outline}
-        fill={fill}
-        width={width}
-      >
+      <ButtonComponent sizing={sizing} outline={outline} fill={fill} width={width}>
         {isDisplayType(fontType) ? (
           <Font.Display type={fontType} color={color} textAlign="center">
             {text}
@@ -48,10 +42,7 @@ function DeprecatedButton(
   }, [ButtonComponent, color, fill, fontType, outline, sizing, text, width]);
 
   return (
-    <S.Container
-      sizing={sizing}
-      disabled={status === "completed" || status === "disabled"}
-    >
+    <S.Container sizing={sizing} disabled={status === 'completed' || status === 'disabled'}>
       {to ? (
         <Link to={to} {...handlers}>
           {buttonChildren}
@@ -89,19 +80,19 @@ const Dialog = React.memo((props: DeprecatedButtonComponentProps) => (
 const deprecatedButtons: DeprecatedButtonSetting = {
   Large: {
     ButtonComponent: S.LargeButton,
-    fontType: "24_bold",
+    fontType: '24_bold',
   },
   Medium: {
     ButtonComponent: S.MediumButton,
-    fontType: "18_semibold",
+    fontType: '18_semibold',
   },
   Small: {
     ButtonComponent: S.SmallButton,
-    fontType: "12_regular",
+    fontType: '12_regular',
   },
   Dialog: {
     ButtonComponent: S.MediumButton,
-    fontType: "14_regular",
+    fontType: '14_regular',
   },
 };
 
@@ -110,7 +101,7 @@ type ButtonProps = {
   /**
    * icon 컴포넌트 위치
    */
-  iconPosition?: "left" | "right";
+  iconPosition?: 'left' | 'right';
   /**
    * SVGIcon 컴포넌트
    */
@@ -119,20 +110,10 @@ type ButtonProps = {
 } & ButtonComponentProps;
 
 function Button(props: ButtonProps) {
-  const {
-    to,
-    width,
-    fontType,
-    iconPosition = "right",
-    icon,
-    className,
-    ...buttonProps
-  } = props;
+  const { to, width, fontType, iconPosition = 'right', icon, className, ...buttonProps } = props;
   const { sizing } = buttonProps;
-  const { text, color, outline, fill, status, ...handlers } =
-    useButton(buttonProps);
-  const { ButtonComponent, fontType: defaultFontType } =
-    buttons[buttonProps.type];
+  const { text, color, outline, fill, status, ...handlers } = useButton(buttonProps);
+  const { ButtonComponent, fontType: defaultFontType } = buttons[buttonProps.type];
 
   const buttonChildren = useMemo(() => {
     if (!text) return null;
@@ -145,15 +126,11 @@ function Button(props: ButtonProps) {
         width={width}
       >
         <Layout.FlexRow gap={4} alignItems="center">
-          {iconPosition === "left" && icon}
-          <Typo
-            type={fontType ?? defaultFontType}
-            color={color}
-            textAlign="center"
-          >
+          {iconPosition === 'left' && icon}
+          <Typo type={fontType ?? defaultFontType} color={color} textAlign="center">
             {text}
           </Typo>
-          {iconPosition === "right" && icon}
+          {iconPosition === 'right' && icon}
         </Layout.FlexRow>
       </ButtonComponent>
     );
@@ -175,7 +152,7 @@ function Button(props: ButtonProps) {
     <S.Container
       className={className}
       sizing={sizing}
-      disabled={status === "completed" || status === "disabled"}
+      disabled={status === 'completed' || status === 'disabled'}
     >
       {to ? (
         <Link to={to} {...handlers}>
@@ -190,57 +167,47 @@ function Button(props: ButtonProps) {
   );
 }
 
-const Primary = React.memo((props: Omit<ButtonProps, "type">) => (
+const Primary = React.memo((props: Omit<ButtonProps, 'type'>) => (
   <Button {...props} type="primary" />
 ));
 
-const Secondary = React.memo((props: Omit<ButtonProps, "type">) => (
+const Secondary = React.memo((props: Omit<ButtonProps, 'type'>) => (
   <Button {...props} type="secondary" />
 ));
 
-const Tertiary = React.memo((props: Omit<ButtonProps, "type">) => (
+const Tertiary = React.memo((props: Omit<ButtonProps, 'type'>) => (
   <Button {...props} type="tertiary" />
 ));
 
-const Confirm = React.memo((props: Omit<ButtonProps, "type">) => (
+const Confirm = React.memo((props: Omit<ButtonProps, 'type'>) => (
   <Button {...props} type="confirm" />
 ));
 
-const Highlight = React.memo((props: Omit<ButtonProps, "type">) => (
+const Highlight = React.memo((props: Omit<ButtonProps, 'type'>) => (
   <Button {...props} type="highlight" />
 ));
 
 const buttons: ButtonSetting = {
   primary: {
     ButtonComponent: S.RoundButton,
-    fontType: "button-medium",
+    fontType: 'button-medium',
   },
   secondary: {
     ButtonComponent: S.RoundButton,
-    fontType: "button-medium",
+    fontType: 'button-medium',
   },
   tertiary: {
     ButtonComponent: S.UnderlineButton,
-    fontType: "button-small",
+    fontType: 'button-small',
   },
   confirm: {
     ButtonComponent: S.ConfirmButton,
-    fontType: "button-medium",
+    fontType: 'button-medium',
   },
   highlight: {
     ButtonComponent: S.RoundButton,
-    fontType: "button-medium",
+    fontType: 'button-medium',
   },
 };
 
-export {
-  Confirm,
-  Dialog,
-  Highlight,
-  Large,
-  Medium,
-  Primary,
-  Secondary,
-  Small,
-  Tertiary,
-};
+export { Confirm, Dialog, Highlight, Large, Medium, Primary, Secondary, Small, Tertiary };

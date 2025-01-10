@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import { BgColor, Border, BoxStyle, Flex } from "./layout.types";
-import { getStyle, toMarginPaddingString } from "./layout.utils";
+import styled, { css } from 'styled-components';
+import { BgColor, Border, BoxStyle, Flex } from './layout.types';
+import { getStyle, toMarginPaddingString } from './layout.utils';
 
 /**
  * @prop {number | string} `rounded` border radius
@@ -37,24 +37,22 @@ export const LayoutBase = styled.div<BgColor & Flex & BoxStyle & Border>`
     rounded,
     z,
     outline,
-    alignItems = "flex-start",
-    bgColor = "TRANSPARENT",
-    justifyContent = "flex-start",
+    alignItems = 'flex-start',
+    bgColor = 'TRANSPARENT',
+    justifyContent = 'flex-start',
     cursor,
     gap = 0,
   }) => css`
-    ${getStyle("padding", toMarginPaddingString(p, ph, pv, pt, pr, pb, pl))}
-    ${getStyle("margin", toMarginPaddingString(m, mh, mv, mt, mr, mb, ml))}
-    ${getStyle("width", w)}
-    ${getStyle("height", h)}
-    ${getStyle("flex", flex)}
-    ${getStyle("border-radius", rounded)}
-    ${getStyle("border-color", outline ? theme[outline] : undefined)}
-    ${getStyle("z-index", z)}
-    ${typeof rounded === "number" ? "overflow: hidden;" : ""}
-    ${typeof outline === "string"
-      ? "border-width: 1px; border-style: solid;"
-      : ""}
+    ${getStyle('padding', toMarginPaddingString(p, ph, pv, pt, pr, pb, pl))}
+    ${getStyle('margin', toMarginPaddingString(m, mh, mv, mt, mr, mb, ml))}
+    ${getStyle('width', w)}
+    ${getStyle('height', h)}
+    ${getStyle('flex', flex)}
+    ${getStyle('border-radius', rounded)}
+    ${getStyle('border-color', outline ? theme[outline] : undefined)}
+    ${getStyle('z-index', z)}
+    ${typeof rounded === 'number' ? 'overflow: hidden;' : ''}
+    ${typeof outline === 'string' ? 'border-width: 1px; border-style: solid;' : ''}
     display: flex;
     flex-direction: column;
     align-items: ${alignItems};
